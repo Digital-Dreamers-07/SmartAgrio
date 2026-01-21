@@ -1,0 +1,36 @@
+import "dotenv/config"; // loads .env automatically
+
+async function testGemini() {
+  try {
+    console.log("🔄 Calling Gemini API...");
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [
+            { parts: [{ text: "Say hello in one simple sentence" }] },
+          ],
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error("❌ FAILED!");
+      console.error(data);
+      return;
+    }
+
+    console.log("✅ SUCCESS!");
+    console.log(data.candidates[0].content.parts[0].text);
+  } catch (err) {
+    console.error("❌ FAILED!");
+    console.error(err);
+  }
+}
+
+testGemini();

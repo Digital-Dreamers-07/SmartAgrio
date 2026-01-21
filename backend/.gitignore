@@ -1,0 +1,18 @@
+# Environment variables
+.env
+
+# Dependencies
+/node_modules
+
+# Build output
+/dist
+
+# Test coverage
+/coverage
+
+# OS files
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-error.log*
