@@ -196,10 +196,17 @@ const chat = async (req, res) => {
 
     // Save chat history
     await UserHistory.create({
-      user: req.user.id,
-      message,
-      reply,
-    });
+  userId: req.user.id,        // matches schema
+  featureType: 'chatbot',     // must be one of the enum values in your schema
+  query: message,             // user’s input
+  response: reply,            // AI reply
+  metadata: {
+    location: user.location, // optional, from User model if exists
+    deviceInfo: req.headers['user-agent'] || '',
+    ipAddress: req.ip
+  }
+});
+
 
     res.status(200).json({ success: true, data: { reply } });
   } catch (error) {

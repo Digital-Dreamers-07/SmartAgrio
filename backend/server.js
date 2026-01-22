@@ -98,7 +98,7 @@ const diseaseRoutes = require('./routes/diseaseRoutes');
 const irrigationRoutes = require('./routes/irrigationRoutes');
 const marketRoutes = require('./routes/marketRoutes');
 const chatbotRoutes = require('./routes/chatbotRoutes');
-
+const dashboardRoutes = require('./routes/dashboardRoutes'); // router
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -118,6 +118,7 @@ app.use('/api/disease', diseaseRoutes);
 app.use('/api/irrigation', irrigationRoutes);
 app.use('/api/market', marketRoutes);
 app.use('/api/chatbot', chatbotRoutes);
+app.use('/api/dashboard', dashboardRoutes); // mount at /api/dashboard
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({ success: true, message: 'SmartFarm API is running', timestamp: new Date().toISOString() });

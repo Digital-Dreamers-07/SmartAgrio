@@ -1,0 +1,7 @@
+/* Use the shared feature styles - create a features.css file */
+@import '../../index.css';
+
+/* Specific overrides if needed */
+.header-icon.success {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}

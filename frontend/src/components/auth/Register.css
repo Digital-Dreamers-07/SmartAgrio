@@ -1,0 +1,137 @@
+/* ==================== REGISTER SPECIFIC STYLES ==================== */
+.register-container {
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ==================== PROGRESS STEPS ==================== */
+.progress-steps {
+  margin: 2.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.5;
+  transition: opacity var(--transition-base);
+}
+
+.progress-step.active {
+  opacity: 1;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.progress-step.active .step-number {
+  background: white;
+  color: var(--primary-600);
+  border-color: white;
+}
+
+.step-info {
+  color: white;
+}
+
+.step-title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.step-description {
+  font-size: 0.8125rem;
+  opacity: 0.8;
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 1rem;
+}
+
+/* ==================== BENEFITS LIST ==================== */
+.benefits-list {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefits-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 0.9375rem;
+}
+
+.benefit-item svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .register-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .progress-steps {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .step-line {
+    width: 2px;
+    height: 30px;
+    margin: 0.5rem 0 0.5rem 19px;
+  }
+}
